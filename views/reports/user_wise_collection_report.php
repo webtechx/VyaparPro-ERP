@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "User wise daily Collection Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 

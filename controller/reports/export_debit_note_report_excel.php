@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 ob_start();
 require_once '../../config/auth_guard.php';
 require '../../vendor/autoload.php';
@@ -193,4 +193,3 @@ header('Cache-Control: max-age=0');
 $writer = new Xlsx($spreadsheet);
 $writer->save('php://output');
 exit;
-

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Vendor Ledger Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 require_once __DIR__ . '/../../controller/reports/vendor_ledger_report.php';

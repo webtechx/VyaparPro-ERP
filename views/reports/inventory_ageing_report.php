@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Inventory Ageing Summary Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 

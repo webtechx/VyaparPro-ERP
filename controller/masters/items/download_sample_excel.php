@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once '../../../config/auth_guard.php';
 require '../../../vendor/autoload.php'; // Ensure autoload is loaded for PhpSpreadsheet
 

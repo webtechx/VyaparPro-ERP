@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Discount Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 require_once __DIR__ . '/../../controller/reports/discount_report.php'; // New controller

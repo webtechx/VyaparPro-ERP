@@ -19,4 +19,3 @@ if (!$conn->query("SET SESSION time_zone = '+05:30'")) {
 }
 $authentication_email="info.skcinfotech@gmail.com";
 $authentication_password="zjdgjguewnqfjrwh";
-?>

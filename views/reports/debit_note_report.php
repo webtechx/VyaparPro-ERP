@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Debit Note Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 require_once __DIR__ . '/../../controller/reports/debit_note_report.php';

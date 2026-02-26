@@ -10,8 +10,6 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: ' . $redirect);
     exit();
 }
-
-
 // Fetch current user details
 $currentUser = null;
 if (isset($_SESSION['user_id'])) {
@@ -96,4 +94,4 @@ if (!function_exists('can_access')) {
         return $_SESSION['permissions'][$module][$action] == 1;
     }
 }
-?>
+

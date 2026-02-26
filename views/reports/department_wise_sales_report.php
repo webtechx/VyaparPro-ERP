@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Department wise Sales Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 

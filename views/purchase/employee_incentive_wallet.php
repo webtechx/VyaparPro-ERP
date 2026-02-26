@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // views/customers/employee_incentive_wallet.php
 require_once __DIR__ . '/../../config/conn.php';
 $title = "Employee Incentive Wallet";

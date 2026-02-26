@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Outstanding Invoice Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 require_once __DIR__ . '/../../controller/reports/outstanding_invoice_report.php';

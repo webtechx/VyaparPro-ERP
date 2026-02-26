@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Purchase History Report (Customers)";
 require_once __DIR__ . '/../../config/auth_guard.php'; // Ensure user is logged in
 require_once __DIR__ . '/../../controller/reports/customer_purchase_history_report.php'; // Updated controller path

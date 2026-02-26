@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Purchase History Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 require_once __DIR__ . '/../../controller/reports/purchase_history_report.php';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $title = "Customer Loyalty Point Report";
 require_once __DIR__ . '/../../config/auth_guard.php';
 
