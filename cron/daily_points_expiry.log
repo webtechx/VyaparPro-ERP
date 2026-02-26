@@ -1,0 +1,66 @@
+[2026-02-12 15:13:23] Starting Loyalty Points Expiry Job
+[2026-02-12 15:13:23] Processing Customer ID: 30 -> Expiring: 642 points (Batches: 3)
+[2026-02-12 15:13:23] Processing Customer ID: 36 -> Expiring: 1840 points (Batches: 1,2)
+[2026-02-12 15:13:23] Daily Expiry Details: Array
+(
+    [0] => Array
+        (
+            [customer_id] => 30
+            [expired_points] => 642
+        )
+
+    [1] => Array
+        (
+            [customer_id] => 36
+            [expired_points] => 1840
+        )
+
+)
+
+[2026-02-12 15:13:23] Job Completed Successfully.
+[2026-02-12 15:13:23] Customers Processed: 2
+[2026-02-12 15:13:23] Total Points Expired: 2482
+[2026-02-23 16:15:17] Starting Loyalty Points Expiry Job
+[2026-02-23 16:15:17] Job Failed: Unknown column 'display_name' in 'field list'
+[2026-02-23 16:19:30] Starting Loyalty Points Expiry Job
+[2026-02-23 16:19:30] Job Failed: Unknown column 'display_name' in 'field list'
+[2026-02-23 16:26:25] Starting Loyalty Points Expiry Job
+[2026-02-23 16:26:25] Job Failed: Unknown column 'display_name' in 'field list'
+[2026-02-23 16:31:40] Starting Loyalty Points Expiry Job
+[2026-02-23 16:31:40] Processing Customer ID: 38 (Sandip) -> Expiring: 12201 points (Batches: 8)
+[2026-02-23 16:31:40] Daily Expiry Details: Array
+(
+    [0] => Array
+        (
+            [organization_id] => 1
+            [customer_id] => 38
+            [customer_name] => Sandip
+            [expired_points] => 12201
+            [assigned_employee_id] => 2
+        )
+
+)
+
+[2026-02-23 16:31:40] Notifications sent to assigned employees: 1
+[2026-02-23 16:31:40] Job Completed Successfully.
+[2026-02-23 16:31:40] Customers Processed: 1
+[2026-02-23 16:31:40] Total Points Expired: 12201
+[2026-02-23 16:44:26] Starting Loyalty Points Expiry Job
+[2026-02-23 16:44:26] Processing Customer ID: 38 (Sandip) -> Expiring: 12201 points (Batches: 8)
+[2026-02-23 16:44:26] Daily Expiry Details: Array
+(
+    [0] => Array
+        (
+            [organization_id] => 1
+            [customer_id] => 38
+            [customer_name] => Sandip
+            [expired_points] => 12201
+            [assigned_employee_id] => 2
+        )
+
+)
+
+[2026-02-23 16:44:26] Notifications sent to assigned employees: 1
+[2026-02-23 16:44:26] Job Completed Successfully.
+[2026-02-23 16:44:26] Customers Processed: 1
+[2026-02-23 16:44:26] Total Points Expired: 12201

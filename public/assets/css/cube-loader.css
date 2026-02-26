@@ -1,0 +1,151 @@
+/* ========================================
+   CUBE FOLDING LOADER COMPONENT
+   Reusable loader for submit, update, delete operations
+======================================== */
+
+.cube-folding {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    transform: rotate(45deg);
+    font-size: 0;
+}
+
+.cube-folding span {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    transform: scale(1.1);
+    display: inline-block;
+}
+
+.cube-folding span::before {
+    content: "";
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 25px;
+    height: 25px;
+    transform-origin: 100% 100%;
+    animation: folding 2.5s infinite linear both;
+}
+
+.cube-folding .leaf2 {
+    transform: rotateZ(90deg) scale(1.1);
+}
+
+.cube-folding .leaf2::before {
+    animation-delay: 0.3s;
+    background-color: #f5f5f5;
+}
+
+.cube-folding .leaf3 {
+    transform: rotateZ(270deg) scale(1.1);
+}
+
+.cube-folding .leaf3::before {
+    animation-delay: 0.9s;
+    background-color: #f5f5f5;
+}
+
+.cube-folding .leaf4 {
+    transform: rotateZ(180deg) scale(1.1);
+}
+
+.cube-folding .leaf4::before {
+    animation-delay: 0.6s;
+    background-color: #e0e0e0;
+}
+
+@keyframes folding {
+    0%, 10% {
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+    25%, 75% {
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+    90%, 100% {
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}
+
+.cube-wrapper {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    text-align: center;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cube-wrapper:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    margin: auto;
+    width: 90px;
+    height: 6px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    filter: blur(2px);
+    border-radius: 100%;
+    animation: shadow 0.5s ease infinite alternate;
+}
+
+.cube-wrapper .loading {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    display: block;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+    animation: text 0.5s ease infinite alternate;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+@keyframes text {
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+@keyframes shadow {
+    100% {
+        bottom: -18px;
+        width: 100px;
+    }
+}
+
+/* Loader Overlay Background */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.loader-overlay.active {
+    display: flex;
+}
