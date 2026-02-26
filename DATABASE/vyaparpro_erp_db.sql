@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2026 at 12:28 PM
+-- Generation Time: Feb 26, 2026 at 10:21 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `samadhan_erp_db_2026`
+-- Database: `vyaparpro_erp_db`
 --
 
 -- --------------------------------------------------------
@@ -195,7 +195,8 @@ INSERT INTO `customers_ledger` (`ledger_id`, `organization_id`, `customer_id`, `
 (9, 1, 37, '2026-02-20', 'Invoice #INV-SAM-0001 (Ref: HGHFH)', 3304.00, 0.00, 3304.00, 1, 'invoice', '2026-02-20 11:04:41'),
 (10, 1, 38, '2026-02-20', 'Invoice #INV-SAM-0001 (Ref: HGHFH)', 437206.00, 0.00, 437206.00, 2, 'invoice', '2026-02-20 12:20:19'),
 (11, 1, 38, '2026-02-21', 'Payment Received #PAY-PR-SAM-0002', 0.00, 437206.00, -437206.00, 4, 'payment', '2026-02-21 10:43:25'),
-(12, 1, 38, '2026-02-21', 'Invoice #INV-SAM-0002 (Ref: HGHFH)', 425005.00, 0.00, -12201.00, 3, 'invoice', '2026-02-21 11:55:07');
+(12, 1, 38, '2026-02-21', 'Invoice #INV-SAM-0002 (Ref: HGHFH)', 425005.00, 0.00, -12201.00, 3, 'invoice', '2026-02-21 11:55:07'),
+(13, 1, 38, '2026-02-23', 'Invoice #INV-SAM-0003 (Ref: HGHFH)', 437206.00, 0.00, 425005.00, 4, 'invoice', '2026-02-23 16:24:40');
 
 -- --------------------------------------------------------
 
@@ -237,8 +238,8 @@ CREATE TABLE `customers_listing` (
 --
 
 INSERT INTO `customers_listing` (`customer_id`, `organization_id`, `customer_code`, `customers_type_id`, `customer_name`, `company_name`, `email`, `anniversary_date`, `date_of_birth`, `phone`, `gst_number`, `address`, `city`, `state`, `state_code`, `pincode`, `shipping_address`, `shipping_city`, `shipping_state`, `shipping_state_code`, `shipping_pincode`, `current_balance_due`, `loyalty_point_balance`, `commissions_amount`, `avatar`, `created_at`) VALUES
-(37, 1, 'CUS-SAM-0001', 1, 'Sunil Kumar', 'WYD', 'soumodeep.official20@gmail.com', '2026-02-20', '2026-02-20', '7059411929', 'CCDR45555', 'BARASAT', 'Kolkata', 'West Bengal', '19', '700124', 'BARASAT', 'Kolkata', 'West Bengal', '19', '700124', 0.00, 29.00, 33120.00, '', '2026-02-20 05:19:59'),
-(38, 1, 'CUS-SAM-0002', 2, 'Sandip', 'SKC INFOTECH', 'info.skc@gmail.com', '2026-02-21', '2026-02-20', '7558965255', 'DFDFDFRER', '', '', '', '', '', '', '', '', '', '', -12201.00, 11835.00, 0.00, 'uploads/ORGSAM20260006/customer_avatars/cust_699805078b74c.jpg', '2026-02-20 06:48:57');
+(37, 1, 'CUS-SAM-0001', 1, 'Sunil Kumar', 'WYD', 'soumodeep.official20@gmail.com', '2026-02-20', '2026-02-20', '7059411929', 'CCDR45555', 'BARASAT', 'Kolkata', 'West Bengal', '19', '700124', 'BARASAT', 'Kolkata', 'West Bengal', '19', '700124', 0.00, 500000.00, 0.00, '', '2026-02-20 05:19:59'),
+(38, 1, 'CUS-SAM-0002', 2, 'Sandip', 'SKC INFOTECH', 'info.skc@gmail.com', '2026-02-21', '2026-02-20', '7558965255', 'DFDFDFRER', '', '', '', '', '', '', '', '', '', '', 425005.00, 487799.00, 0.00, 'uploads/ORGSAM20260006/customer_avatars/cust_699805078b74c.jpg', '2026-02-20 06:48:57');
 
 -- --------------------------------------------------------
 
@@ -348,6 +349,16 @@ CREATE TABLE `department_targets` (
   `team_member_incentive` decimal(15,2) DEFAULT 0.00,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `department_targets`
+--
+
+INSERT INTO `department_targets` (`id`, `monthly_target_id`, `department_id`, `target_amount`, `team_member_incentive`, `created_at`) VALUES
+(1, 1, 1, 1641136.25, 26258.18, '2026-02-26 06:30:23'),
+(2, 1, 2, 1641136.25, 26258.18, '2026-02-26 06:30:23'),
+(3, 1, 3, 1641136.25, 26258.18, '2026-02-26 06:30:23'),
+(4, 1, 4, 1641136.25, 26258.18, '2026-02-26 06:30:23');
 
 -- --------------------------------------------------------
 
@@ -547,11 +558,8 @@ INSERT INTO `employee_permissions` (`permission_id`, `employee_id`, `module_slug
 (217, 1, 'add_targets', 1, 1, 1, 1),
 (218, 1, 'credit_note', 1, 1, 0, 0),
 (219, 1, 'payment_received', 1, 1, 1, 1),
-(426, 25, 'credit_note_report', 1, 1, 1, 1),
-(427, 25, 'customer_ledger_report', 1, 1, 1, 1),
-(428, 25, 'customers_listing', 1, 0, 0, 0),
-(429, 25, 'customers_type_listing', 1, 0, 0, 0),
-(430, 25, 'documentation', 1, 1, 1, 1);
+(448, 25, 'designation_listing', 1, 1, 1, 1),
+(449, 25, 'discount_report', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -576,7 +584,8 @@ CREATE TABLE `goods_received_notes` (
 --
 
 INSERT INTO `goods_received_notes` (`grn_id`, `organization_id`, `po_id`, `vendor_id`, `grn_number`, `grn_date`, `challan_no`, `remarks`, `created_at`) VALUES
-(5, 1, 8, 33, 'GRN-SAM-0001', '2026-02-20', '', '', '2026-02-20 07:37:30');
+(5, 1, 8, 33, 'GRN-SAM-0001', '2026-02-20', '', '', '2026-02-20 07:37:30'),
+(6, 1, 10, 33, 'GRN-SAM-0002', '2026-02-23', '', '', '2026-02-23 09:03:44');
 
 -- --------------------------------------------------------
 
@@ -600,7 +609,8 @@ CREATE TABLE `goods_received_note_items` (
 --
 
 INSERT INTO `goods_received_note_items` (`grn_item_id`, `grn_id`, `po_item_id`, `item_id`, `ordered_qty`, `received_qty`, `condition_status`, `remarks`) VALUES
-(8, 5, 26, 1, 10.00, 5.00, 'Good', '');
+(8, 5, 26, 1, 10.00, 5.00, 'Good', ''),
+(9, 6, 29, 4, 30.00, 30.00, 'Good', '');
 
 -- --------------------------------------------------------
 
@@ -679,10 +689,10 @@ CREATE TABLE `items_listing` (
 --
 
 INSERT INTO `items_listing` (`item_id`, `organization_id`, `item_name`, `brand`, `hsn_id`, `description`, `stock_keeping_unit`, `unit_id`, `mrp`, `selling_price`, `create_at`, `update_at`, `current_stock`, `opening_stock`) VALUES
-(1, 1, 'Commercial Plywood 19mm', 'Greenply', 9, '19mm commercial plywood sheet 8x4', 'PLY-GP-19-001', 1, 3200.00, 2950.00, '2026-01-15 05:26:47', '2026-02-21 06:24:57', -86.00, 0.00),
-(2, 1, 'BWP Marine Plywood 18mm', 'Century Ply', 7, 'Waterproof marine plywood 8x4', 'PLY-CP-18-002', 1, 4800.00, 4600.00, '2026-01-15 05:26:47', '2026-02-21 06:24:57', -100.00, 0.00),
+(1, 1, 'Commercial Plywood 19mm', 'Greenply', 9, '19mm commercial plywood sheet 8x4', 'PLY-GP-19-001', 1, 3200.00, 2950.00, '2026-01-15 05:26:47', '2026-02-23 10:54:30', -136.00, 0.00),
+(2, 1, 'BWP Marine Plywood 18mm', 'Century Ply', 7, 'Waterproof marine plywood 8x4', 'PLY-CP-18-002', 1, 4800.00, 4600.00, '2026-01-15 05:26:47', '2026-02-23 10:54:30', -160.00, 0.00),
 (3, 1, 'Flush Door 30mm', 'Greenpanel', 9, '30mm flush door waterproof', 'DOOR-GP-30-003', 1, 5200.00, 4900.00, '2026-01-15 05:26:47', '2026-02-10 10:08:38', 0.00, 0.00),
-(4, 1, 'Decorative Laminate Sheet', 'Sunmica', 8, '1mm decorative laminate glossy finish', 'LAM-SUN-01', 1, 1350.00, 1250.00, '2026-01-15 05:26:47', '2026-02-07 04:41:10', 0.00, 0.00),
+(4, 1, 'Decorative Laminate Sheet', 'Sunmica', 8, '1mm decorative laminate glossy finish', 'LAM-SUN-01', 1, 1350.00, 1250.00, '2026-01-15 05:26:47', '2026-02-23 09:03:44', 30.00, 0.00),
 (5, 1, 'Acrylic Laminate Sheet', 'Merino', 8, 'High gloss acrylic laminate', 'LAM-MER-02', 1, 4200.00, 3950.00, '2026-01-15 05:26:47', '2026-02-17 07:18:36', 50.00, 50.00),
 (6, 1, 'Block Board 19mm', 'Kitply', 1, '19mm block board sheet 8x4', 'BB-KIT-19-004', 1, 3600.00, 3350.00, '2026-01-15 05:26:47', '2026-02-07 04:41:10', 0.00, 0.00),
 (7, 1, 'PVC Laminate Sheet', 'Royal Touch', 9, 'PVC laminate waterproof sheet', 'LAM-PVC-05', 1, 2200.00, 2050.00, '2026-01-15 05:26:47', '2026-02-07 04:41:10', 0.00, 0.00),
@@ -769,13 +779,7 @@ CREATE TABLE `loyalty_points_earned` (
 --
 
 INSERT INTO `loyalty_points_earned` (`loyalty_point_id`, `organization_id`, `customer_id`, `slab_id`, `invoice_id`, `bill_amount`, `points_earned`, `points_remaining`, `valid_till`, `created_at`) VALUES
-(1, 1, 36, 3, 1, 48247.50, 920, 0, '2026-02-10', '2026-02-09 11:38:41'),
-(2, 1, 36, 3, 2, 48247.50, 920, 0, '2026-01-05', '2026-02-09 11:42:06'),
-(3, 1, 30, 3, 3, 33757.50, 642, 0, '2026-02-01', '2026-02-09 11:45:32'),
-(4, 1, 30, 4, 4, 76510.00, 2127, 2127, '2026-03-25', '2026-02-16 06:29:44'),
-(5, 1, 37, 2, 1, 3304.00, 29, 29, '2027-01-20', '2026-02-20 05:34:31'),
-(6, 1, 38, 4, 2, 437206.00, 12201, 12201, '2026-03-29', '2026-02-20 06:50:10'),
-(7, 1, 38, 4, 3, 425005.00, 11835, 11835, '2026-03-30', '2026-02-21 06:24:57');
+(8, 1, 38, 4, 4, 437206.00, 12201, 0, '2026-02-22', '2026-02-23 10:54:30');
 
 -- --------------------------------------------------------
 
@@ -830,16 +834,7 @@ CREATE TABLE `loyalty_point_transactions` (
 --
 
 INSERT INTO `loyalty_point_transactions` (`transaction_id`, `organization_id`, `customer_id`, `invoice_id`, `transaction_type`, `points`, `balance_after_transaction`, `expiry_date`, `note`, `created_at`) VALUES
-(1, 1, 36, 1, 'EARN', 920, 920, '2026-03-18', 'Points Earned from Invoice INV-SAM-0001', '2026-02-09 11:38:41'),
-(2, 1, 36, 2, 'EARN', 920, 920, '2026-03-18', 'Points Earned from Invoice INV-SAM-0003', '2026-02-09 11:42:06'),
-(3, 1, 30, 3, 'EARN', 642, 642, '2026-03-18', 'Points Earned from Invoice INV-SAM-0004', '2026-02-09 11:45:32'),
-(9, 1, 30, NULL, 'EXPIRED', 642, 0, '2026-02-12', 'Points Expired', '2026-02-12 09:43:23'),
-(10, 1, 36, NULL, 'EXPIRED', 1840, 0, '2026-02-12', 'Points Expired', '2026-02-12 09:43:23'),
-(11, 1, 30, 4, 'EARN', 2127, 2127, '2026-03-25', 'Points Earned from Invoice INV-SAM-0005', '2026-02-16 06:29:44'),
-(12, 1, 37, 1, 'EARN', 29, 29, '2027-01-20', 'Points Earned from Invoice INV-SAM-0001', '2026-02-20 05:34:31'),
-(13, 1, 38, 2, 'EARN', 12201, 12201, '2026-03-29', 'Points Earned from Invoice INV-SAM-0001', '2026-02-20 06:50:10'),
-(14, 1, 38, 3, 'REDEEM', 12201, 0, NULL, 'Points Redeemed for Invoice INV-SAM-0002', '2026-02-21 06:24:57'),
-(15, 1, 38, 3, 'EARN', 11835, 11835, '2026-03-30', 'Points Earned from Invoice INV-SAM-0002', '2026-02-21 06:24:57');
+(18, 1, 38, NULL, 'EXPIRED', 12201, 487799, '2026-02-23', 'Points Expired', '2026-02-23 11:14:26');
 
 -- --------------------------------------------------------
 
@@ -858,6 +853,35 @@ CREATE TABLE `monthly_targets` (
   `team_share_percent` decimal(5,2) DEFAULT 80.00,
   `distributed` enum('0','1') NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monthly_targets`
+--
+
+INSERT INTO `monthly_targets` (`id`, `month`, `year`, `total_target`, `incentive_percent`, `manager_share_percent`, `manager_roles`, `team_share_percent`, `distributed`, `created_at`) VALUES
+(1, 'February', 2026, 6564545.00, 2.00, 20.00, '[\"2\",\"3\"]', 80.00, '0', '2026-02-26 06:30:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `type` enum('info','warning','success','error','reminder','system') DEFAULT 'info',
+  `icon` varchar(200) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `is_read` tinyint(1) DEFAULT 0,
+  `is_deleted` tinyint(1) DEFAULT 0,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `read_at` datetime DEFAULT NULL,
+  `send_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `priority` enum('low','medium','high','urgent') DEFAULT 'low'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -929,9 +953,7 @@ CREATE TABLE `payment_made` (
 --
 
 INSERT INTO `payment_made` (`payment_id`, `organization_id`, `vendor_id`, `payment_number`, `payment_date`, `payment_mode`, `reference_no`, `amount`, `notes`, `created_by`, `created_at`) VALUES
-(4, 1, 27, 'PAY-PM-SAM-0001', '2026-02-12', 'Cash', '458772', 70510.00, 'ghngnbg', 13, '2026-02-12 10:57:43'),
-(5, 1, 27, 'PAY-PM-SAM-0002', '2026-02-12', 'Cash', '458772', 45000.00, 'hgfh', 13, '2026-02-12 11:18:48'),
-(6, 1, 32, 'PAY-PM-SAM-0003', '2026-02-19', 'Cash', 'HGHFH', 300000.00, 'fhfgh', 13, '2026-02-19 12:27:33');
+(7, 1, 34, 'PAY-PM-SAM-0001', '2026-02-24', 'Cheque', 'HGHFH', 10200.00, '5454', 13, '2026-02-24 05:10:48');
 
 -- --------------------------------------------------------
 
@@ -1052,6 +1074,7 @@ CREATE TABLE `purchase_orders` (
   `order_date` date NOT NULL,
   `delivery_date` date DEFAULT NULL,
   `payment_terms` varchar(50) DEFAULT NULL,
+  `payment_date` date DEFAULT NULL,
   `shipment_preference` varchar(50) DEFAULT NULL,
   `notes` text DEFAULT NULL,
   `terms_conditions` text DEFAULT NULL,
@@ -1074,8 +1097,11 @@ CREATE TABLE `purchase_orders` (
 -- Dumping data for table `purchase_orders`
 --
 
-INSERT INTO `purchase_orders` (`purchase_orders_id`, `organization_id`, `vendor_id`, `delivery_address_type`, `delivery_address_text`, `po_number`, `reference_no`, `order_date`, `delivery_date`, `payment_terms`, `shipment_preference`, `notes`, `terms_conditions`, `sub_total`, `discount_type`, `discount_value`, `adjustment`, `gst_type`, `gst_rate`, `cgst_amount`, `sgst_amount`, `igst_amount`, `total_amount`, `status`, `created_at`, `updated_at`) VALUES
-(8, 1, 33, 'organization', NULL, 'PO-SAM-0001', 'HGHFH', '2026-02-20', '2026-02-28', 'Due on Receipt', NULL, '', '', 28025.00, 'amount', 0.00, 0.00, '', 0.00, 0.00, 0.00, 0.00, 28025.00, 'partially_received', '2026-02-20 07:36:46', '2026-02-20 07:37:30');
+INSERT INTO `purchase_orders` (`purchase_orders_id`, `organization_id`, `vendor_id`, `delivery_address_type`, `delivery_address_text`, `po_number`, `reference_no`, `order_date`, `delivery_date`, `payment_terms`, `payment_date`, `shipment_preference`, `notes`, `terms_conditions`, `sub_total`, `discount_type`, `discount_value`, `adjustment`, `gst_type`, `gst_rate`, `cgst_amount`, `sgst_amount`, `igst_amount`, `total_amount`, `status`, `created_at`, `updated_at`) VALUES
+(8, 1, 33, 'organization', NULL, 'PO-SAM-0001', 'HGHFH', '2026-02-20', '2026-02-28', 'Due on Receipt', NULL, NULL, '', '', 28025.00, 'amount', 0.00, 0.00, '', 0.00, 0.00, 0.00, 0.00, 28025.00, 'partially_received', '2026-02-20 07:36:46', '2026-02-20 07:37:30'),
+(9, 1, 33, 'organization', NULL, 'PO-SAM-0002', 'HGHFH', '2026-02-23', '2026-02-19', 'Net 15', '2026-02-24', NULL, '', '', 12500.00, 'amount', 0.00, 0.00, '', 0.00, 0.00, 0.00, 0.00, 12500.00, 'cancelled', '2026-02-23 09:01:07', '2026-02-23 09:52:25'),
+(10, 1, 33, 'organization', NULL, 'PO-SAM-0003', '', '2026-02-23', NULL, 'Due on Receipt', NULL, NULL, '', '', 45000.00, 'amount', 0.00, 0.00, '', 0.00, 0.00, 0.00, 0.00, 45000.00, 'received', '2026-02-23 09:01:53', '2026-02-23 09:03:44'),
+(11, 1, 33, 'organization', NULL, 'PO-SAM-0004', 'HGHFH', '2026-02-01', NULL, 'Net 30', '2026-02-23', NULL, '', '', 2600.00, 'amount', 0.00, 0.00, '', 0.00, 0.00, 0.00, 0.00, 2600.00, 'sent', '2026-02-23 09:22:32', '2026-02-23 09:55:11');
 
 -- --------------------------------------------------------
 
@@ -1100,7 +1126,15 @@ CREATE TABLE `purchase_order_activity_logs` (
 INSERT INTO `purchase_order_activity_logs` (`po_logs_id`, `organization_id`, `purchase_order_id`, `action`, `description`, `performed_by`, `created_at`) VALUES
 (25, 1, 8, 'created', 'Purchase Order Created', 1, '2026-02-20 07:36:46'),
 (26, 0, 8, 'status_update', 'Status updated to Confirmed', 1, '2026-02-20 07:37:04'),
-(27, 1, 8, 'updated', 'Purchase Order Updated', 1, '2026-02-20 07:37:15');
+(27, 1, 8, 'updated', 'Purchase Order Updated', 1, '2026-02-20 07:37:15'),
+(28, 1, 9, 'created', 'Purchase Order Created', 1, '2026-02-23 09:01:07'),
+(29, 1, 10, 'created', 'Purchase Order Created', 1, '2026-02-23 09:01:53'),
+(30, 0, 10, 'status_update', 'Status updated to Confirmed', 1, '2026-02-23 09:03:22'),
+(31, 1, 10, 'updated', 'Purchase Order Updated', 1, '2026-02-23 09:03:38'),
+(32, 0, 9, 'status_update', 'Status updated to Cancelled', 1, '2026-02-23 09:17:43'),
+(33, 1, 9, 'updated', 'Purchase Order Updated', 1, '2026-02-23 09:17:43'),
+(34, 1, 9, 'updated', 'Purchase Order Updated', 1, '2026-02-23 09:17:59'),
+(35, 1, 11, 'created', 'Purchase Order Created', 1, '2026-02-23 09:22:32');
 
 -- --------------------------------------------------------
 
@@ -1143,7 +1177,10 @@ CREATE TABLE `purchase_order_items` (
 --
 
 INSERT INTO `purchase_order_items` (`id`, `organization_id`, `purchase_order_id`, `item_id`, `item_name`, `quantity`, `unit_id`, `rate`, `discount`, `discount_type`, `amount`, `created_at`) VALUES
-(26, 1, 8, 1, 'Commercial Plywood 19mm', 10.00, '1', 2950.00, 5.00, 'percentage', 28025.00, '2026-02-20 07:37:15');
+(26, 1, 8, 1, 'Commercial Plywood 19mm', 10.00, '1', 2950.00, 5.00, 'percentage', 28025.00, '2026-02-20 07:37:15'),
+(29, 1, 10, 4, 'Decorative Laminate Sheet', 30.00, '1', 1500.00, 0.00, 'amount', 45000.00, '2026-02-23 09:03:38'),
+(31, 1, 9, 4, 'Decorative Laminate Sheet', 10.00, '1', 1250.00, 0.00, 'amount', 12500.00, '2026-02-23 09:17:59'),
+(32, 1, 11, 8, 'Wooden Louver Panel', 1.00, '1', 2600.00, 0.00, 'amount', 2600.00, '2026-02-23 09:22:32');
 
 -- --------------------------------------------------------
 
@@ -1216,7 +1253,8 @@ CREATE TABLE `sales_invoices` (
 
 INSERT INTO `sales_invoices` (`invoice_id`, `organization_id`, `proforma_invoice_id`, `customer_id`, `make_employee_id`, `sales_employee_id`, `delivery_mode`, `reference_customer_id`, `invoice_number`, `invoice_date`, `due_date`, `reference_no`, `payment_terms`, `discount_type`, `discount_value`, `sub_total`, `total_amount`, `balance_due`, `status`, `notes`, `terms_conditions`, `adjustment`, `gst_type`, `cgst_amount`, `sgst_amount`, `igst_amount`, `reward_points_earned`, `reward_points_redeemed`, `created_at`, `updated_at`) VALUES
 (2, 1, 2, 38, 13, 2, 'road', 37, 'INV-SAM-0001', '2026-02-20', NULL, 'HGHFH', 'Due on Receipt', 'amount', 16750.00, 423500.00, 437206.00, 0.00, 'paid', '', '', 0.00, 'CGST_SGST', 15228.00, 15228.00, 0.00, 12201.00, 0.00, '2026-02-20 06:50:10', '2026-02-21 05:13:25'),
-(3, 1, 2, 38, 1, 2, 'road', NULL, 'INV-SAM-0002', '2026-02-21', NULL, 'HGHFH', 'Due on Receipt', 'amount', 16750.00, 423500.00, 425005.00, 425005.00, 'sent', '', '', 0.00, 'CGST_SGST', 15228.00, 15228.00, 0.00, 11835.00, 12201.00, '2026-02-21 06:24:57', '2026-02-21 06:24:57');
+(3, 1, 2, 38, 1, 2, 'road', NULL, 'INV-SAM-0002', '2026-02-21', NULL, 'HGHFH', 'Due on Receipt', 'amount', 16750.00, 423500.00, 425005.00, 425005.00, 'sent', '', '', 0.00, 'CGST_SGST', 15228.00, 15228.00, 0.00, 11835.00, 12201.00, '2026-02-21 06:24:57', '2026-02-21 06:24:57'),
+(4, 1, 2, 38, 13, 2, 'road', NULL, 'INV-SAM-0003', '2026-02-23', NULL, 'HGHFH', 'Due on Receipt', 'amount', 16750.00, 423500.00, 437206.00, 437206.00, 'sent', '', '', 0.00, 'CGST_SGST', 15228.00, 15228.00, 0.00, 12201.00, 0.00, '2026-02-23 10:54:30', '2026-02-23 10:54:30');
 
 -- --------------------------------------------------------
 
@@ -1250,7 +1288,9 @@ INSERT INTO `sales_invoice_items` (`id`, `organization_id`, `invoice_id`, `item_
 (2, 1, 2, 1, 'Commercial Plywood 19mm', '3004', 1, 50.00, 2950.00, 2.00, 'percentage', 144550.00, 12.00, 161896.00, '2026-02-20 06:50:10'),
 (3, 1, 2, 2, 'BWP Marine Plywood 18mm', '1701', 1, 60.00, 4600.00, 5.00, 'percentage', 262200.00, 5.00, 275310.00, '2026-02-20 06:50:10'),
 (4, 1, 3, 1, 'Commercial Plywood 19mm', '3004', 1, 50.00, 2950.00, 2.00, 'percentage', 144550.00, 12.00, 161896.00, '2026-02-21 06:24:57'),
-(5, 1, 3, 2, 'BWP Marine Plywood 18mm', '1701', 1, 60.00, 4600.00, 5.00, 'percentage', 262200.00, 5.00, 275310.00, '2026-02-21 06:24:57');
+(5, 1, 3, 2, 'BWP Marine Plywood 18mm', '1701', 1, 60.00, 4600.00, 5.00, 'percentage', 262200.00, 5.00, 275310.00, '2026-02-21 06:24:57'),
+(6, 1, 4, 1, 'Commercial Plywood 19mm', '3004', 1, 50.00, 2950.00, 2.00, 'percentage', 144550.00, 12.00, 161896.00, '2026-02-23 10:54:30'),
+(7, 1, 4, 2, 'BWP Marine Plywood 18mm', '1701', 1, 60.00, 4600.00, 5.00, 'percentage', 262200.00, 5.00, 275310.00, '2026-02-23 10:54:30');
 
 -- --------------------------------------------------------
 
@@ -1316,7 +1356,9 @@ INSERT INTO `vendors_addresses` (`vendor_addresses_id`, `organization_id`, `vend
 (88, 1, 32, 'billing', 'billing', 'India', '12 Market Road', 'Near City Mall', '12 Market Road', 'New Delhi', '110001', '011-4567891', '011-4567890', '2026-02-19 11:53:44', '2026-02-19 11:53:44'),
 (89, 1, 32, 'shipping', 'billing', 'India', '12 Market Road', 'Near City Mall', '12 Market Road', 'New Delhi', '110001', '011-4567891', '011-4567890', '2026-02-19 11:53:44', '2026-02-19 11:53:44'),
 (90, 1, 33, 'billing', 'billing', 'india', 'chapadali', 'station', 'barasat', 'wb', '700124', '011-4567891', '011-4567890', '2026-02-20 07:36:17', '2026-02-20 07:36:17'),
-(91, 1, 33, 'shipping', 'billing', 'india', 'chapadali', 'station', 'barasat', 'wb', '700124', '011-4567891', '011-4567890', '2026-02-20 07:36:17', '2026-02-20 07:36:17');
+(91, 1, 33, 'shipping', 'billing', 'india', 'chapadali', 'station', 'barasat', 'wb', '700124', '011-4567891', '011-4567890', '2026-02-20 07:36:17', '2026-02-20 07:36:17'),
+(92, 1, 34, 'billing', 'Billing', 'india', 'chapadali', 'Near City Mall', '12 Market Road', 'New Delhi', '700124', '011-4567891', '011-4567890', '2026-02-23 12:15:43', '2026-02-23 12:15:43'),
+(93, 1, 34, 'shipping', 'Billing', 'india', 'chapadali', 'Near City Mall', '12 Market Road', 'New Delhi', '700124', '011-4567891', '011-4567890', '2026-02-23 12:15:43', '2026-02-23 12:15:43');
 
 -- --------------------------------------------------------
 
@@ -1398,7 +1440,8 @@ CREATE TABLE `vendors_listing` (
 --
 
 INSERT INTO `vendors_listing` (`vendor_id`, `organization_id`, `vendor_code`, `salutation`, `first_name`, `last_name`, `company_name`, `display_name`, `vendor_type`, `vendor_account_type`, `email`, `work_phone`, `mobile`, `vendor_language`, `pan`, `gst_no`, `currency`, `opening_balance`, `opening_balance_type`, `current_balance_due`, `payment_terms`, `status`, `avatar`, `created_at`, `updated_at`) VALUES
-(33, 1, 'VEN-SAM-001', 'Mr.', 'SOUMODEEP', 'MONDAL', 'SKC INFOTECH', 'SKC INFOTECH', 'Goods Supplier', 'Sundry Creditors', 'soumodeep.official20@gmail.com', '011-4567890', '7059411929', 'en', 'AADCS7369C', '21AABCA4455D1ZC', '0', 50000.00, 'CR', 14750.00, 'Due on Receipt', 'active', '', '2026-02-20 07:36:17', '2026-02-20 07:37:30');
+(33, 1, 'VEN-SAM-001', 'Mr.', 'SOUMODEEP', 'MONDAL', 'SKC INFOTECH', 'SKC INFOTECH', 'Goods Supplier', 'Sundry Creditors', 'soumodeep.official20@gmail.com', '011-4567890', '7059411929', 'en', 'AADCS7369C', '21AABCA4455D1ZC', '0', 50000.00, 'CR', 59750.00, 'Due on Receipt', 'active', '', '2026-02-20 07:36:17', '2026-02-23 09:03:44'),
+(34, 1, 'VEN-SAM-002', 'Dr.', 'Avik', 'Mondal', 'ORIX-SRC', 'ORIX-SRC', '', '', 'avik@gmail.com', '43435466633444', '878787996565', 'en', '', '', '0', 0.00, 'DR', -10200.00, 'Due on Receipt', 'active', '', '2026-02-23 12:15:43', '2026-02-24 05:10:48');
 
 -- --------------------------------------------------------
 
@@ -1615,6 +1658,14 @@ ALTER TABLE `monthly_targets`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `is_read` (`is_read`);
+
+--
 -- Indexes for table `organizations`
 --
 ALTER TABLE `organizations`
@@ -1771,7 +1822,7 @@ ALTER TABLE `customers_commissions_payouts`
 -- AUTO_INCREMENT for table `customers_ledger`
 --
 ALTER TABLE `customers_ledger`
-  MODIFY `ledger_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ledger_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `customers_listing`
@@ -1807,7 +1858,7 @@ ALTER TABLE `department_listing`
 -- AUTO_INCREMENT for table `department_targets`
 --
 ALTER TABLE `department_targets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `designation_listing`
@@ -1843,19 +1894,19 @@ ALTER TABLE `employee_bank_details`
 -- AUTO_INCREMENT for table `employee_permissions`
 --
 ALTER TABLE `employee_permissions`
-  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=431;
+  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=450;
 
 --
 -- AUTO_INCREMENT for table `goods_received_notes`
 --
 ALTER TABLE `goods_received_notes`
-  MODIFY `grn_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `grn_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `goods_received_note_items`
 --
 ALTER TABLE `goods_received_note_items`
-  MODIFY `grn_item_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `grn_item_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `hsn_listing`
@@ -1885,7 +1936,7 @@ ALTER TABLE `item_commissions`
 -- AUTO_INCREMENT for table `loyalty_points_earned`
 --
 ALTER TABLE `loyalty_points_earned`
-  MODIFY `loyalty_point_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `loyalty_point_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `loyalty_point_slabs`
@@ -1897,13 +1948,19 @@ ALTER TABLE `loyalty_point_slabs`
 -- AUTO_INCREMENT for table `loyalty_point_transactions`
 --
 ALTER TABLE `loyalty_point_transactions`
-  MODIFY `transaction_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `transaction_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `monthly_targets`
 --
 ALTER TABLE `monthly_targets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `organizations`
@@ -1915,7 +1972,7 @@ ALTER TABLE `organizations`
 -- AUTO_INCREMENT for table `payment_made`
 --
 ALTER TABLE `payment_made`
-  MODIFY `payment_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `payment_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payment_received`
@@ -1939,13 +1996,13 @@ ALTER TABLE `proforma_invoice_items`
 -- AUTO_INCREMENT for table `purchase_orders`
 --
 ALTER TABLE `purchase_orders`
-  MODIFY `purchase_orders_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `purchase_orders_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `purchase_order_activity_logs`
 --
 ALTER TABLE `purchase_order_activity_logs`
-  MODIFY `po_logs_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `po_logs_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `purchase_order_files`
@@ -1957,7 +2014,7 @@ ALTER TABLE `purchase_order_files`
 -- AUTO_INCREMENT for table `purchase_order_items`
 --
 ALTER TABLE `purchase_order_items`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `roles_listing`
@@ -1969,13 +2026,13 @@ ALTER TABLE `roles_listing`
 -- AUTO_INCREMENT for table `sales_invoices`
 --
 ALTER TABLE `sales_invoices`
-  MODIFY `invoice_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `invoice_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sales_invoice_items`
 --
 ALTER TABLE `sales_invoice_items`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `units_listing`
@@ -1987,7 +2044,7 @@ ALTER TABLE `units_listing`
 -- AUTO_INCREMENT for table `vendors_addresses`
 --
 ALTER TABLE `vendors_addresses`
-  MODIFY `vendor_addresses_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `vendor_addresses_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `vendors_bank_accounts`
@@ -2005,7 +2062,7 @@ ALTER TABLE `vendors_contacts`
 -- AUTO_INCREMENT for table `vendors_listing`
 --
 ALTER TABLE `vendors_listing`
-  MODIFY `vendor_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `vendor_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `vendors_remarks`
